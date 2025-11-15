@@ -26,6 +26,8 @@
     "did"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ipfs-http-client": "^56.0.3"
+  }
 }
-

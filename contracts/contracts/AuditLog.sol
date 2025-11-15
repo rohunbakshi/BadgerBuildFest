@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * @dev Immutable log of access and verification events
  */
 contract AuditLog is Ownable {
+    constructor() Ownable(msg.sender) {}
     enum EventType {
         ResumeViewed,
         CredentialVerified,

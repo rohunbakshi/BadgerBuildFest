@@ -9,6 +9,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  * @dev Manages resume creation, updates, and access control
  */
 contract ResumeRegistry is Ownable, ReentrancyGuard {
+    constructor() Ownable(msg.sender) {}
     struct Resume {
         bytes32 resumeId;
         address owner;

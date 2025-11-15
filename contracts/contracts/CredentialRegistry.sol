@@ -46,7 +46,7 @@ contract CredentialRegistry is Ownable, ReentrancyGuard {
     
     event CredentialRevoked(bytes32 indexed credentialId, address indexed issuer, uint256 timestamp);
 
-    constructor(address _issuerRegistry) {
+    constructor(address _issuerRegistry) Ownable(msg.sender) {
         issuerRegistry = IssuerRegistry(_issuerRegistry);
     }
 

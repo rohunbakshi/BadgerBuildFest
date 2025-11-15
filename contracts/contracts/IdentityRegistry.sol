@@ -9,6 +9,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  * @dev Manages user identities on-chain, mapping wallet addresses to identity data
  */
 contract IdentityRegistry is Ownable, ReentrancyGuard {
+    constructor() Ownable(msg.sender) {}
     struct Identity {
         address walletAddress;
         bytes32 profileHash; // Hash of off-chain profile metadata

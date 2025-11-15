@@ -9,6 +9,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  * @dev Manages verified issuer organizations (universities, companies, certifying bodies)
  */
 contract IssuerRegistry is Ownable, ReentrancyGuard {
+    constructor() Ownable(msg.sender) {}
     enum IssuerStatus {
         Pending,
         Approved,
