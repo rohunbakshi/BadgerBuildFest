@@ -1,7 +1,7 @@
 {
-  "name": "decentralized-identity-resume",
+  "name": "verified-resume-platform",
   "version": "1.0.0",
-  "description": "Blockchain-based platform for decentralized identity and resume management",
+  "description": "Blockchain-based verified resume and job matching platform - Verification is Everything",
   "private": true,
   "workspaces": [
     "contracts",
@@ -20,10 +20,12 @@
   },
   "keywords": [
     "blockchain",
-    "decentralized-identity",
-    "resume",
-    "verifiable-credentials",
-    "did"
+    "verified-resume",
+    "job-matching",
+    "verification",
+    "fraud-prevention",
+    "ethereum",
+    "solana"
   ],
   "author": "",
   "license": "MIT",

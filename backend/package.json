@@ -1,7 +1,7 @@
 {
-  "name": "@decentralized-identity/backend",
+  "name": "@verified-resume/backend",
   "version": "1.0.0",
-  "description": "Backend API server for decentralized identity and resume management",
+  "description": "Backend API server for verified resume and job matching platform",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",

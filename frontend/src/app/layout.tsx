@@ -6,8 +6,8 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Decentralized Identity & Resume',
-  description: 'Own and control your verified digital identity and resume',
+  title: 'Verified Resume Platform',
+  description: 'Verification is Everything. Build verified resumes, get paid for verification, and find matching jobs.',
 }
 
 export default function RootLayout({

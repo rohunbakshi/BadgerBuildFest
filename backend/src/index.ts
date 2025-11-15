@@ -10,6 +10,9 @@ import credentialRoutes from "./routes/credentials";
 import resumeRoutes from "./routes/resumes";
 import issuerRoutes from "./routes/issuers";
 import accessRoutes from "./routes/access";
+import verificationRoutes from "./routes/verification";
+import matchingRoutes from "./routes/matching";
+import stakingRoutes from "./routes/staking";
 
 dotenv.config();
 
@@ -45,6 +48,9 @@ app.use("/api/credentials", credentialRoutes);
 app.use("/api/resumes", resumeRoutes);
 app.use("/api/issuers", issuerRoutes);
 app.use("/api/access", accessRoutes);
+app.use("/api/verification", verificationRoutes);
+app.use("/api/matching", matchingRoutes);
+app.use("/api/staking", stakingRoutes);
 
 // Error handling
 app.use(notFound);

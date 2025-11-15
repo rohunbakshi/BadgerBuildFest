@@ -1,72 +1,79 @@
-'use client'
+"use client";
 
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
-import Link from 'next/link'
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from "next/link";
 
 export default function Home() {
-  const { isConnected, address } = useAccount()
-
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold">Decentralized Identity & Resume</h1>
-          <ConnectButton />
-        </div>
-
-        {isConnected ? (
-          <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-semibold mb-4">Welcome!</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Your wallet address: <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">{address}</code>
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/identity" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Identity</h3>
-                <p className="text-gray-600 dark:text-gray-300">Manage your decentralized identity and profile</p>
-              </Link>
-
-              <Link href="/credentials" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Credentials</h3>
-                <p className="text-gray-600 dark:text-gray-300">View and manage your verified credentials</p>
-              </Link>
-
-              <Link href="/resumes" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Resumes</h3>
-                <p className="text-gray-600 dark:text-gray-300">Create and manage your resumes</p>
-              </Link>
-
-              <Link href="/share" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Share</h3>
-                <p className="text-gray-600 dark:text-gray-300">Share your resume with employers</p>
-              </Link>
-
-              <Link href="/verify" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Verify</h3>
-                <p className="text-gray-600 dark:text-gray-300">Verify credentials and resumes</p>
-              </Link>
-
-              <Link href="/issuer" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">Issuer</h3>
-                <p className="text-gray-600 dark:text-gray-300">Issue credentials as an organization</p>
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-            <h2 className="text-2xl font-semibold mb-4">Connect Your Wallet</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Connect your wallet to get started with decentralized identity and resume management.
-            </p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            Verified Resume Platform
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Verification is Everything. Everything else is secondary.
+          </p>
+          <div className="flex justify-center gap-4">
             <ConnectButton />
           </div>
-        )}
-      </div>
-    </main>
-  )
-}
+        </div>
 
+        {/* Key Features */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <h2 className="text-2xl font-bold mb-4">✅ Verified-Only Resumes</h2>
+            <p className="text-gray-600">
+              Build resumes from verified credentials only. 100% fraud prevention.
+            </p>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <h2 className="text-2xl font-bold mb-4">⭐ Public Verification Score</h2>
+            <p className="text-gray-600">
+              Earn Diamond, Platinum, Gold badges based on verified credentials.
+            </p>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <h2 className="text-2xl font-bold mb-4">💰 Get Paid for Verification</h2>
+            <p className="text-gray-600">
+              Employers pay to verify candidates. You earn money for verification.
+            </p>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="grid md:grid-cols-4 gap-4">
+          <Link
+            href="/identity"
+            className="bg-indigo-600 text-white rounded-lg p-6 text-center hover:bg-indigo-700 transition"
+          >
+            <h3 className="font-bold mb-2">Identity</h3>
+            <p className="text-sm">Manage your identity</p>
+          </Link>
+          <Link
+            href="/resumes"
+            className="bg-indigo-600 text-white rounded-lg p-6 text-center hover:bg-indigo-700 transition"
+          >
+            <h3 className="font-bold mb-2">Resumes</h3>
+            <p className="text-sm">Build verified resumes</p>
+          </Link>
+          <Link
+            href="/verification"
+            className="bg-indigo-600 text-white rounded-lg p-6 text-center hover:bg-indigo-700 transition"
+          >
+            <h3 className="font-bold mb-2">Verification</h3>
+            <p className="text-sm">Verify credentials</p>
+          </Link>
+          <Link
+            href="/matching"
+            className="bg-indigo-600 text-white rounded-lg p-6 text-center hover:bg-indigo-700 transition"
+          >
+            <h3 className="font-bold mb-2">Job Matching</h3>
+            <p className="text-sm">Find matching jobs</p>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

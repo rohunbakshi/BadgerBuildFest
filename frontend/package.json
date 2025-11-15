@@ -1,7 +1,7 @@
 {
-  "name": "@decentralized-identity/frontend",
+  "name": "@verified-resume/frontend",
   "version": "1.0.0",
-  "description": "Frontend application for decentralized identity and resume management",
+  "description": "Frontend application for verified resume and job matching platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

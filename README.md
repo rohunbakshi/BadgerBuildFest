@@ -1,197 +1,213 @@
-# Decentralized Identity and Resume Management Platform
+# Verified Resume & Job Matching Platform
 
-A blockchain-based platform that allows individuals to own and control their verified digital identity, resumes, and references. Employers and organizations can instantly validate this information without relying on centralized intermediaries.
+> **Verification is Everything. Everything else is secondary.**
+
+A blockchain-based platform that prevents resume fraud and improves job matching through **on-chain verification**. Unlike LinkedIn or traditional job sites, our platform makes verification **public, valuable, required, and challengeable**.
+
+## 🎯 Core Philosophy
+
+**Verification is Everything** - Our platform makes verification:
+- ✅ **Public and visible** (on-chain, transparent)
+- ✅ **Valuable** (people get paid for verification)
+- ✅ **Required** (can't build resume without verified credentials)
+- ✅ **Challengeable** (anyone can challenge fraud)
+- ✅ **Scored** (public reputation based on verification)
+
+## 🚀 Key Differentiators
+
+| Feature | LinkedIn | Us |
+|---------|----------|-----|
+| **Verification** | Optional, hidden | Required, public, on-chain |
+| **Fraud Prevention** | Self-reported, can fake | Smart contract enforced, can't fake |
+| **Verification Value** | Free, not valuable | Paid, valuable |
+| **Verification Challenges** | None | Public challenge system |
+| **Verification Score** | None | Public on-chain score |
+
+See [UNIQUE_DIFFERENTIATORS.md](./UNIQUE_DIFFERENTIATORS.md) for complete details.
 
 ## 🏗️ Architecture
 
-This is a monorepo containing:
-
-- **`contracts/`** - Smart contracts (Solidity) for identity, credentials, resumes, and access control
-- **`backend/`** - Node.js/Express API server with IPFS integration and database
-- **`frontend/`** - React/Next.js web application with Web3 integration
-- **`shared/`** - Shared TypeScript types and utilities
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-1. **Node.js 18+** and npm
-
-   - Download from [nodejs.org](https://nodejs.org/)
-   - Verify: `node --version` and `npm --version`
-
-2. **MongoDB** (for backend database)
-
-   - Download from [mongodb.com](https://www.mongodb.com/try/download/community)
-   - Or use MongoDB Atlas (cloud): [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
-
-3. **IPFS** (optional, for decentralized storage)
-
-   - Install IPFS: [ipfs.io/install](https://docs.ipfs.io/install/)
-   - Or use a remote IPFS service like Pinata or Infura
-
-4. **MetaMask** or another Web3 wallet (for frontend)
-   - Install browser extension: [metamask.io](https://metamask.io/)
-
-### Step-by-Step Setup
-
-#### 1. Install Dependencies
-
-```bash
-# Install root and all workspace dependencies
-npm install
-
-# Or install individually in each directory
-cd contracts && npm install
-cd ../backend && npm install
-cd ../frontend && npm install
 ```
-
-#### 2. Set Up Environment Variables
-
-**Backend** (`backend/.env`):
-
-```bash
-cd backend
-cp .env.example .env
-# Edit .env with your configuration
-```
-
-**Frontend** (`frontend/.env.local`):
-
-```bash
-cd frontend
-# Create .env.local file with:
-# NEXT_PUBLIC_API_URL=http://localhost:3001
-# NEXT_PUBLIC_RPC_URL=http://localhost:8545
-```
-
-#### 3. Start Local Blockchain
-
-In a **new terminal window**:
-
-```bash
-cd contracts
-npm run dev
-# This starts Hardhat local network on http://localhost:8545
-# Keep this terminal open!
-```
-
-#### 4. Deploy Smart Contracts
-
-In a **new terminal window**:
-
-```bash
-cd contracts
-npm run deploy:local
-# Copy the contract addresses from the output
-# Update backend/.env with these addresses
-```
-
-#### 5. Start MongoDB
-
-Make sure MongoDB is running:
-
-```bash
-# If installed locally:
-mongod
-
-# Or if using MongoDB Atlas, ensure connection string is in backend/.env
-```
-
-#### 6. Start Backend API
-
-In a **new terminal window**:
-
-```bash
-cd backend
-npm run dev
-# Server will start on http://localhost:3001
-# Keep this terminal open!
-```
-
-#### 7. Start Frontend
-
-In a **new terminal window**:
-
-```bash
-cd frontend
-npm run dev
-# App will start on http://localhost:3000
-# Open in your browser!
-```
-
-### Running the Application
-
-Once everything is set up, you should have:
-
-1. **Local blockchain** running on `http://localhost:8545`
-2. **Backend API** running on `http://localhost:3001`
-3. **Frontend app** running on `http://localhost:3000`
-
-Open your browser and navigate to `http://localhost:3000`
-
-### Quick Commands Reference
-
-```bash
-# Install all dependencies
-npm install
-
-# Start local blockchain
-cd contracts && npm run dev
-
-# Deploy contracts
-cd contracts && npm run deploy:local
-
-# Start backend
-cd backend && npm run dev
-
-# Start frontend
-cd frontend && npm run dev
-
-# Run tests
-cd contracts && npm test
-cd backend && npm test
-cd frontend && npm test
+┌─────────────────────────────────────────┐
+│     Gemini Wallet SDK (Identity)       │
+│  • Holds identity & credentials        │
+│  • Passkey authentication               │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│   Solana (Fast Verification)            │
+│  • University credentials               │
+│  • Employer verification                │
+│  • Cost: ~$0.00025 per verification    │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│   Ethereum (Trusted Storage)            │
+│  • Resume verification                  │
+│  • Job matching vault                   │
+│  • Resume staking                      │
+│  • Verification marketplace             │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│   Turtle.xyz (Staking & Rewards)         │
+│  • Liquidity distribution                │
+│  • Staking rewards                       │
+└─────────────────────────────────────────┘
 ```
 
 ## 📁 Project Structure
 
 ```
 .
-├── contracts/          # Smart contracts
-│   ├── contracts/      # Solidity source files
-│   ├── scripts/        # Deployment scripts
-│   ├── test/           # Contract tests
-│   └── hardhat.config.js
-├── backend/            # API server
+├── contracts/              # Smart contracts (Solidity)
+│   ├── contracts/         # Contract source files
+│   ├── scripts/           # Deployment scripts
+│   └── test/              # Contract tests
+├── backend/               # Node.js/Express API
 │   ├── src/
-│   │   ├── routes/     # API routes
-│   │   ├── models/     # Database models
-│   │   ├── services/   # Business logic
-│   │   └── utils/      # Utilities
+│   │   ├── routes/       # API routes
+│   │   ├── services/     # Business logic
+│   │   ├── models/       # Database models
+│   │   └── config/       # Configuration
 │   └── package.json
-├── frontend/           # Web application
+├── frontend/              # Next.js/React app
 │   ├── src/
-│   │   ├── components/ # React components
-│   │   ├── pages/     # Page components
-│   │   ├── hooks/      # Custom hooks
-│   │   └── utils/      # Utilities
+│   │   ├── app/          # Next.js app router
+│   │   ├── components/   # React components
+│   │   └── config/       # Wagmi/Web3 config
 │   └── package.json
-└── shared/             # Shared code
-    └── types/          # TypeScript types
+├── COMPLETE_PROJECT_VISION.md  # Full project vision
+└── UNIQUE_DIFFERENTIATORS.md   # What makes us different
 ```
 
-## 🔐 Key Features
+## 🚀 Quick Start
 
-- **Decentralized Identity**: Users own their identity via blockchain wallet/DID
-- **Verified Credentials**: Issuers (universities, companies) can issue verifiable credentials
-- **Resume Management**: Build resumes from verified credentials and self-claimed data
-- **Reference System**: Signed references from referees
-- **Selective Sharing**: Fine-grained consent and access control
-- **Employer Verification**: Batch verification of credentials and references
+### Prerequisites
+
+- **Node.js 18+** and npm
+- **MongoDB** (local or Atlas)
+- **MetaMask** or Web3 wallet
+- **Hardhat** (for local blockchain)
+
+### Installation
+
+```bash
+# Install all dependencies
+npm install
+
+# Install in each workspace
+cd contracts && npm install
+cd ../backend && npm install
+cd ../frontend && npm install
+```
+
+### Environment Setup
+
+**Backend** (`backend/.env`):
+```env
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/verified-resume
+ETHEREUM_RPC_URL=http://localhost:8545
+PRIVATE_KEY=your_private_key_here
+IDENTITY_REGISTRY_ADDRESS=
+CREDENTIAL_REGISTRY_ADDRESS=
+RESUME_VERIFICATION_ADDRESS=
+```
+
+**Frontend** (`frontend/.env.local`):
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_ETHEREUM_RPC_URL=http://localhost:8545
+```
+
+### Running the Application
+
+1. **Start local blockchain**:
+```bash
+cd contracts
+npm run dev
+```
+
+2. **Deploy contracts**:
+```bash
+cd contracts
+npm run deploy:local
+# Copy contract addresses to backend/.env
+```
+
+3. **Start backend**:
+```bash
+cd backend
+npm run dev
+```
+
+4. **Start frontend**:
+```bash
+cd frontend
+npm run dev
+```
+
+Or use the convenience script:
+```bash
+./start-dev.ps1  # Windows PowerShell
+```
+
+## 🔑 Core Features
+
+### 1. Verified-Only Resume Builder
+- Smart contract enforces verified credentials only
+- **100% fraud prevention** - can't add unverified claims
+- Instant trust for employers
+
+### 2. Public Verification Score
+- On-chain reputation (Diamond, Platinum, Gold, Silver, Bronze)
+- Public and transparent
+- Employers filter by verification level
+
+### 3. Verification Challenges
+- Anyone can challenge credentials (stake tokens)
+- Public challenge system
+- Rewards for successful challenges
+
+### 4. Verification Marketplace
+- Employers pay to verify candidates
+- Candidates earn money for verification
+- Verification has monetary value
+
+### 5. Job Matching Vault
+- Skillset-based matching
+- Pre-filtered, verified candidates
+- Reduces employer filtering time by 90%
+
+### 6. Resume Staking
+- Users stake resumes for rewards
+- Platform earns fees
+- Employers pay for premium access
+
+See [COMPLETE_PROJECT_VISION.md](./COMPLETE_PROJECT_VISION.md) for all features.
+
+## 📝 Smart Contracts
+
+### Core Contracts
+- `IdentityRegistry.sol` - User identity management
+- `CredentialRegistry.sol` - Credential issuance and verification
+- `ResumeVerification.sol` - Resume verification and fraud detection
+- `CredentialBridge.sol` - Bridge Solana credentials to Ethereum
+
+### Verification Contracts
+- `VerificationScore.sol` - Public verification score
+- `VerificationChallenge.sol` - Public challenge system
+- `VerificationMarketplace.sol` - Paid verification marketplace
+- `VerifiedProjectPortfolio.sol` - Verified project portfolio
+
+### Matching & Staking
+- `JobMatchingVault.sol` - Skillset-based job matching
+- `ResumeStaking.sol` - Resume staking with rewards
+- `GovernmentIDVerification.sol` - KYC/identity verification
 
 ## 🧪 Testing
 
@@ -206,9 +222,10 @@ cd backend && npm test
 cd frontend && npm test
 ```
 
-## 📝 Documentation
+## 📚 Documentation
 
-See the [Requirements Document](./Decentralized_Identity_Resume_Requirements.md) for detailed specifications.
+- [COMPLETE_PROJECT_VISION.md](./COMPLETE_PROJECT_VISION.md) - Full project vision and features
+- [UNIQUE_DIFFERENTIATORS.md](./UNIQUE_DIFFERENTIATORS.md) - What makes us different
 
 ## 🤝 Contributing
 
@@ -220,3 +237,9 @@ See the [Requirements Document](./Decentralized_Identity_Resume_Requirements.md)
 ## 📄 License
 
 MIT
+
+## 🎯 Key Message
+
+**"Verification is everything. Everything else is secondary."**
+
+We're not just another job matching site - we're a **verification platform** that happens to do job matching.
