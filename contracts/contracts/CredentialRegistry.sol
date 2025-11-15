@@ -14,7 +14,10 @@ contract CredentialRegistry is Ownable, ReentrancyGuard {
         Degree,
         Employment,
         Certification,
-        Reference
+        Reference,
+        Course,          // NEW: For student course credentials
+        Test,            // NEW: For test/assessment credentials
+        Skill            // NEW: For skill credentials
     }
 
     struct Credential {

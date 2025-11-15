@@ -1,7 +1,7 @@
 {
-  "name": "@decentralized-identity/contracts",
+  "name": "@verified-resume/contracts",
   "version": "1.0.0",
-  "description": "Smart contracts for decentralized identity and resume management",
+  "description": "Smart contracts for verified resume and job matching platform",
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
