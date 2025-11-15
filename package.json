@@ -1,0 +1,31 @@
+{
+  "name": "decentralized-identity-resume",
+  "version": "1.0.0",
+  "description": "Blockchain-based platform for decentralized identity and resume management",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "backend",
+    "frontend",
+    "shared"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install --workspaces",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "dev:contracts": "cd contracts && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
+  "keywords": [
+    "blockchain",
+    "decentralized-identity",
+    "resume",
+    "verifiable-credentials",
+    "did"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+
