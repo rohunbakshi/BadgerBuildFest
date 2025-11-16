@@ -117,13 +117,15 @@ contract ResumeVerification is Ownable, ReentrancyGuard {
             }
             
             // Push verified claim to storage array
-            verifiedResume.claims.push(ResumeClaim({
+            // Create struct in memory first to avoid calldata-to-storage copy issues
+            ResumeClaim memory newClaim = ResumeClaim({
                 claimType: claims[i].claimType,
                 credentialId: claims[i].credentialId,
                 description: claims[i].description,
                 verified: claimVerified,
                 verificationSource: source
-            }));
+            });
+            verifiedResume.claims.push(newClaim);
             
             if (claimVerified) {
                 verifiedCount++;

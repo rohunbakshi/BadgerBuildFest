@@ -20,6 +20,17 @@ module.exports = {
           800: '#075985',
           900: '#0c4a6e',
         },
+        // Dashboard specific colors from Figma design
+        dashboard: {
+          primary: '#667eea',
+          secondary: '#764ba2',
+          success: '#10b981',
+          text: {
+            primary: '#111827',
+            secondary: '#6b7280',
+          },
+          bg: '#f9fafb',
+        },
       },
     },
   },
